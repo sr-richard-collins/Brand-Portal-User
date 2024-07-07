@@ -1,0 +1,68 @@
+//
+// forms.scss
+//
+
+// Forms
+label {
+    font-weight: $font-weight-medium;
+}
+
+.form-check {
+    .form-check-input,
+    label {
+        cursor: pointer;
+    }
+}
+
+// Form elements (Color and Range)
+input.form-control[type='color'],
+input.form-control[type='range'] {
+    min-height: 39px;
+}
+
+// Search box
+.search-bar {
+    position: relative;
+
+    .form-control {
+        padding-left: 40px;
+        padding-right: 20px;
+    }
+
+    span {
+        position: absolute;
+        z-index: 10;
+        font-size: 16px;
+        top: 8px;
+        left: 13px;
+        color: $text-muted;
+    }
+}
+
+// checkbox
+.form-check-input {
+    margin-top: 0.125rem;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+// Color Checkbox and Radio
+@each $color, $value in $theme-colors {
+    .form-checkbox-#{$color},
+    .form-radio-#{$color} {
+        .form-check-input {
+            &:checked {
+                background-color: $value;
+                border-color: $value;
+            }
+        }
+    }
+}
+
+.form-todo {
+    input[type='checkbox']:checked + label {
+        text-decoration: line-through;
+    }
+}

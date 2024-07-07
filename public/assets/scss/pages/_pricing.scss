@@ -1,0 +1,91 @@
+//
+// pricing.scss
+//
+
+.card-pricing {
+    position: relative;
+
+    .card-pricing-plan-name {
+        padding-bottom: 20px;
+    }
+
+    .card-pricing-icon {
+        font-size: $font-size-base;
+        background-color: rgba($primary, 0.1);
+        height: 60px;
+        display: inline-block;
+        width: 60px;
+        line-height: 62px;
+        border-radius: 50%;
+    }
+
+    .card-pricing-price {
+        padding: 30px 0 0;
+
+        span {
+            font-size: 40%;
+            color: $text-muted;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+    }
+    .card-pricing-features {
+        color: $text-muted;
+        list-style: none;
+        margin: 0;
+        padding: 20px 0 0 0;
+
+        li {
+            padding: 10px;
+        }
+    }
+
+    .pricing-ribbon.float-end {
+        margin-right: -34px;
+        border-radius: $border-radius-sm 0 0 $border-radius-sm;
+        &::before {
+            right: 0;
+        }
+    }
+    .pricing-ribbon {
+        position: relative;
+        background-color: $primary;
+        clear: both;
+        padding: 5px 12px;
+        margin-bottom: 15px;
+        box-shadow: 2px 5px 10px rgba($primary, 0.3);
+        color: $white;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-semibold;
+        &::before {
+            content: ' ';
+            border-style: solid;
+            border-width: 10px;
+            display: block;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            margin-bottom: -10px;
+            z-index: -1;
+        }
+    }
+    .pricing-ribbon-primary {
+        background: $primary;
+        &::before {
+            border-color: shade-color($primary, 15%) transparent transparent;
+        }
+    }
+}
+
+.card-pricing-recommended {
+    background-color: $primary;
+    color: $white;
+
+    .card-pricing-icon {
+        background-color: rgba($white, 0.1);
+    }
+    .card-pricing-features,
+    .card-pricing-price span {
+        color: rgba($white, 0.7);
+    }
+}

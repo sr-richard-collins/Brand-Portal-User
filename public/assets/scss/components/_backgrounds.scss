@@ -1,0 +1,28 @@
+//
+// backgrounds.scss
+//
+
+@each $color, $value in $theme-colors-rgb {
+    .bg-soft-#{$color} {
+        --#{$prefix}bg-opacity: 0.25;
+        background-color: rgba(
+            var(--#{$prefix}#{$color}-rgb),
+            var(--#{$prefix}bg-opacity)
+        ) !important;
+    }
+}
+
+.bg-ghost {
+    opacity: 0.4;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.7;
+}

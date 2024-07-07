@@ -1,0 +1,30 @@
+.content-none {
+  &:after {
+    display: none !important;
+  }
+
+  &:before {
+    display: none !important;
+  }
+}
+
+.icons-center {
+  display: inline-flex;
+  align-items: center;
+}
+
+.flex-centered{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@include media-breakpoint-down(md) {
+  .email-offcanvas {
+    --#{$prefix}offcanvas-width: 100%;
+  }
+}
+
+.email-offcanvas {
+  --#{$prefix}offcanvas-width: 780px;
+}

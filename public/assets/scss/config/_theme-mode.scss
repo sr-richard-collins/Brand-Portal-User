@@ -1,0 +1,77 @@
+//
+// _light-mode.scss
+//
+
+/* Root Prefix Variable */
+:root {
+    --#{$prefix}logo-lg-height: 20px;
+    --#{$prefix}logo-sm-height: 30px;
+
+    --#{$prefix}main-nav-width: 260px;
+    --#{$prefix}main-nav-width-sm: 75px;
+    --#{$prefix}main-nav-item-icon-size: 20px;
+    --#{$prefix}main-nav-item-font-size: 15px;
+    --#{$prefix}main-nav-item-padding-x: 20px;
+    --#{$prefix}main-nav-item-padding-y: 10px;
+
+    --#{$prefix}topbar-height: 70px;
+    --#{$prefix}footer-height: 60px;
+
+    // Heading Variable
+    --#{$prefix}headings-color: #313b5e;
+
+    --#{$prefix}input-border-color: #d8dfe7;
+    --#{$prefix}input-focus-border-color: #b0b0bb;
+}
+
+/* Color system - Dark Mode only */
+html[data-bs-theme='dark'],
+[data-bs-theme='dark'] {
+    --#{$prefix}border-color: #2f3944;
+
+    --#{$prefix}light: #{$body-tertiary-bg-dark};
+    --#{$prefix}dark: #{$body-tertiary-color-dark};
+
+    --#{$prefix}light-rgb: #{to-rgb($body-tertiary-bg-dark)};
+    --#{$prefix}dark-rgb: #{to-rgb($body-tertiary-color-dark)};
+
+    // Heading Variable
+    --#{$prefix}headings-color: #{$body-color-dark};
+
+    --#{$prefix}input-border-color: #3a4551;
+    --#{$prefix}input-focus-border-color: #4a5663;
+}
+
+/* Main Menu Light */
+html[data-menu-color='light'] {
+    --#{$prefix}main-nav-bg: #ffffff;
+    --#{$prefix}main-nav-item-color: #8486a7;
+    --#{$prefix}main-nav-item-hover-bg: #f3f1fa;
+    --#{$prefix}main-nav-item-hover-color: #3d4756;
+    --#{$prefix}main-nav-border-color: #eaedf1;
+}
+
+/* Main Menu Dark */
+html[data-menu-color='dark'],
+html[data-bs-theme='dark'][data-menu-color='light'] {
+    --#{$prefix}main-nav-bg: #262d34;
+    --#{$prefix}main-nav-item-color: #9097a7;
+    --#{$prefix}main-nav-item-hover-bg: #{shade-color(#36404a, 8%)};
+    --#{$prefix}main-nav-item-hover-color: #{$white};
+    --#{$prefix}main-nav-border-color: #2f3944;
+}
+
+/* Topbar Light */
+html[data-topbar-color='light'] {
+    --#{$prefix}topbar-bg: #{$white};
+    --#{$prefix}topbar-item-color: #707793;
+    --#{$prefix}topbar-search-bg: #f3f3f9;
+}
+
+/* Topbar Dark */
+html[data-topbar-color='dark'],
+html[data-bs-theme='dark'][data-topbar-color='light'] {
+    --#{$prefix}topbar-bg: #22282e;
+    --#{$prefix}topbar-item-color: #dee2e6;
+    --#{$prefix}topbar-search-bg: #2c3238;
+}

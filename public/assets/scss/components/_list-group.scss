@@ -1,0 +1,14 @@
+//
+// _list-group.scss
+//
+
+@each $color, $value in $theme-colors {
+    .list-group-item-#{$color} {
+        color: shade-color($value, 5%);
+        background-color: rgba($value, 0.15);
+
+        .alert-link {
+            color: shade-color($value, 20%);
+        }
+    }
+}

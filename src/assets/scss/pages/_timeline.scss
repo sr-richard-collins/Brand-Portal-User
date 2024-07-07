@@ -1,0 +1,195 @@
+//
+// timeline.scss
+//
+
+// left timeline
+.left-timeline {
+    border-left: 2px dashed var(--#{$prefix}border-color);
+    padding-left: 34px;
+    margin-left: 8px;
+
+    .left-timeline-list {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: -44px;
+            top: 0;
+            background: $primary;
+            clip-path: polygon(
+                30% 0%,
+                70% 0%,
+                100% 30%,
+                100% 70%,
+                70% 100%,
+                30% 100%,
+                0% 70%,
+                0% 30%
+            );
+            height: 18px;
+            width: 18px;
+        }
+    }
+}
+
+// center timeline
+
+.timeline {
+    margin-bottom: 50px;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        border: 1px dashed var(--#{$prefix}border-color);
+        bottom: 0;
+        left: 50%;
+        top: 30px;
+        width: 0;
+        z-index: 0;
+    }
+
+    .timeline-time {
+        .time-show {
+            background-color: var(--#{$prefix}body-bg);
+            padding: 20px 0;
+            position: relative;
+        }
+    }
+
+    .timeline-box {
+        display: block;
+        position: relative;
+        padding: 20px;
+    }
+
+    .timeline-album {
+        margin-top: 12px;
+
+        a {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        img {
+            height: 36px;
+            width: auto;
+            border-radius: 3px;
+        }
+    }
+}
+
+@include media-breakpoint-up(md) {
+    .timeline {
+        .timeline-time {
+            .time-show {
+                justify-content: center;
+            }
+        }
+
+        .timeline-box {
+            margin-left: 15px;
+        }
+
+        .timeline-icon {
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: -42px;
+                top: 0;
+                background: $primary;
+                clip-path: polygon(
+                    30% 0%,
+                    70% 0%,
+                    100% 30%,
+                    100% 70%,
+                    70% 100%,
+                    30% 100%,
+                    0% 70%,
+                    0% 30%
+                );
+                height: 18px;
+                width: 18px;
+            }
+        }
+
+        .timeline-desk {
+            display: table-cell;
+            vertical-align: top;
+            width: 50%;
+        }
+    }
+
+    .timeline-item {
+        display: flex;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 50%;
+        }
+
+        &.timeline-item-left {
+            &::after {
+                content: '';
+                display: block;
+                width: 50%;
+            }
+
+            .timeline-desk {
+                .album {
+                    float: right;
+                    margin-top: 20px;
+
+                    a {
+                        float: right;
+                        margin-left: 5px;
+                    }
+                }
+            }
+
+            .timeline-icon {
+                left: auto;
+                right: -25px;
+
+                &::before {
+                    left: auto;
+                    right: -20px;
+                }
+            }
+
+            &::before {
+                display: none;
+            }
+
+            .timeline-box {
+                margin-right: 15px;
+                margin-left: 0;
+                text-align: right;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .timeline {
+        .timeline-time {
+            .time-show {
+                justify-content: center;
+            }
+        }
+
+        .event-date {
+            float: left !important;
+            margin-right: 1.5rem;
+            margin-left: 0 !important;
+        }
+
+        .timeline-icon {
+            display: none;
+        }
+    }
+}

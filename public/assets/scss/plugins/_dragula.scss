@@ -1,0 +1,84 @@
+//
+// dragula.scss
+//
+
+.gu-mirror {
+    position: fixed !important;
+    margin: 0 !important;
+    z-index: 9999 !important;
+    opacity: 0.8;
+}
+
+.gu-hide {
+    display: none !important;
+}
+
+.gu-unselectable {
+    user-select: none !important;
+}
+
+.gu-transit {
+    opacity: 0.2;
+}
+
+.dragula-handle {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    text-align: center;
+    cursor: move;
+
+    &:before {
+        content: '\e945';
+        font-family: 'Material Symbols Rounded';
+        position: absolute;
+    }
+}
+
+//
+.board {
+    display: block;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.tasks {
+    display: inline-block;
+    width: 23rem;
+    padding: 0 $card-spacer-x $card-spacer-y $card-spacer-x;
+    border: $border-width solid $border-color;
+    vertical-align: top;
+    margin-bottom: $spacer;
+    @include border-radius($card-border-radius);
+
+    &.tasks:not(:last-child) {
+        margin-right: $spacer;
+    }
+
+    .card {
+        white-space: normal;
+        margin-top: $spacer;
+    }
+
+    .task-header {
+        background-color: $primary;
+        color: $white;
+        padding: 1rem;
+        margin: 0 -1.5rem;
+    }
+}
+
+.task-list-items {
+    min-height: 100px;
+    position: relative;
+
+    &::before {
+        content: 'No Tasks';
+        position: absolute;
+        line-height: 110px;
+        width: 100%;
+        text-align: center;
+        font-weight: $font-weight-semibold;
+    }
+}

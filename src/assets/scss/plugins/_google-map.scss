@@ -1,0 +1,28 @@
+//
+// google-map.scss
+//
+
+.gmaps,
+.gmaps-panaroma {
+    height: 300px;
+    background: $gray-100;
+    border-radius: 3px;
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: 100%;
+    height: 400px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 100%;
+    height: 400px;
+}
+
+.gmap_iframe {
+    height: 400px !important;
+}

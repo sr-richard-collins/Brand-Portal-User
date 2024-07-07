@@ -1,0 +1,211 @@
+//
+// widgets.scss
+//
+
+.widget-icon {
+    font-size: 5rem;
+    position: absolute;
+    right: -25px;
+    bottom: -15px;
+    opacity: 0.2;
+    animation: bounce 7s ease infinite;
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+// milestones
+
+.milestones {
+    position: relative;
+    padding-left: 25px;
+
+    &::after {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: $primary;
+        position: absolute;
+        top: 2px;
+        left: 0;
+        content: '';
+    }
+
+    &::before {
+        height: 75px;
+        width: 2px;
+        position: absolute;
+        top: 15px;
+        bottom: 5px;
+        left: 4px;
+        right: 0;
+        background: var(--#{$prefix}border-color);
+        content: '';
+    }
+
+    &:last-child {
+        &::before {
+            height: 28px;
+        }
+    }
+}
+
+//  chat
+
+.conversation-list {
+    list-style: none;
+    height: 332px;
+    padding: 0 7px;
+
+    li {
+        margin-bottom: 24px;
+    }
+
+    .chat-avatar {
+        float: left;
+        text-align: center;
+        width: 38px;
+
+        img {
+            border-radius: 100%;
+            width: 100%;
+        }
+
+        i {
+            font-size: 12px;
+            font-style: normal;
+        }
+    }
+
+    .ctext-wrap {
+        background: var(--#{$prefix}light);
+        color: $primary;
+        border-radius: $border-radius-sm;
+        display: inline-block;
+        padding: 4px 12px;
+        position: relative;
+        // min-width: 160px;
+
+        i {
+            display: block;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: $font-weight-bold;
+            position: relative;
+        }
+
+        p {
+            margin: 0;
+            padding-top: 3px;
+        }
+    }
+
+    .conversation-text {
+        float: left;
+        font-size: 12px;
+        margin-left: 12px;
+        width: 70%;
+    }
+
+    .odd {
+        .chat-avatar {
+            float: right !important;
+        }
+
+        .conversation-text {
+            float: right !important;
+            margin-right: 12px;
+            text-align: right;
+            width: 70% !important;
+        }
+
+        .ctext-wrap {
+            background-color: $primary;
+            color: $white;
+        }
+    }
+}
+
+// project activity
+.activity {
+    .activity-list {
+        display: flex;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            text-align: center;
+            content: '\F4FE';
+            font-family: 'bootstrap-icons';
+            font-size: 22px;
+            color: $white;
+            left: 56px;
+            top: -6px;
+            z-index: 1;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 57px;
+            top: 0;
+            height: 20px;
+            width: 20px;
+            background: $primary;
+            border-radius: 50%;
+        }
+    }
+}
+
+// project activity
+.activity-widget {
+    .activity-list {
+        border-bottom: $border-width solid $border-color;
+        padding: 10px 0px;
+
+        &:last-child {
+            border: none;
+        }
+    }
+}
+
+// chart card
+.chart-card {
+    .left-chart-card {
+        padding-right: $spacer;
+        border-right: $border-width solid $border-color;
+    }
+
+    .right-chart-card {
+        padding-left: $spacer;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .chart-card {
+        .left-chart-card {
+            padding-right: $spacer * 0.5;
+            padding-bottom: $spacer;
+            border-right: 0;
+            border-bottom: $border-width solid $border-color;
+        }
+
+        .right-chart-card {
+            padding-left: $spacer * 0.5;
+            padding-top: $spacer;
+        }
+    }
+}

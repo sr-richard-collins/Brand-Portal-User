@@ -1,0 +1,86 @@
+//
+// app.scss
+//
+
+@import "nouislider/distribute/nouislider.css";
+@import 'gridjs/dist/theme/mermaid.css';
+
+
+// Core files
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'config/variables';
+@import 'config/variables-dark';
+
+@import 'config/variables-custom';
+@import 'config/theme-mode';
+
+@import 'bootstrap/scss/bootstrap';
+
+// Structure
+@import 'structure/topbar';
+@import 'structure/vertical';
+@import 'structure/page-title';
+@import 'structure/footer';
+
+// Bootstrap
+@import 'components/accordion';
+@import 'components/alerts';
+@import 'components/avatar';
+@import 'components/backgrounds';
+@import 'components/badge';
+@import 'components/breadcrumb';
+@import 'components/buttons';
+@import 'components/card';
+@import 'components/docs';
+@import 'components/dropdown';
+@import 'components/forms';
+@import 'components/helper';
+@import 'components/list-group';
+@import 'components/modal';
+@import 'components/nav';
+@import 'components/pagination';
+@import 'components/popover';
+@import 'components/preloader';
+@import 'components/print';
+@import 'components/progress';
+@import 'components/reboot';
+@import 'components/switch';
+@import 'components/tables';
+@import 'components/type';
+@import 'components/tooltip';
+@import 'components/widgets';
+
+// Plugin
+@import 'plugins/simplebar';
+@import 'plugins/calendar';
+@import 'plugins/choice';
+@import 'plugins/dropzone';
+@import 'plugins/editors';
+@import 'plugins/gridjs';
+@import 'plugins/apexcharts';
+@import 'plugins/google-map';
+@import 'plugins/vector-map';
+@import 'plugins/dragula';
+@import 'plugins/flatpicker';
+@import 'plugins/swiper';
+@import 'plugins/sweetalert';
+@import 'plugins/prismjs';
+@import 'plugins/range-slider';
+@import 'plugins/toastify';
+
+// App Page
+@import 'pages/app-chat';
+@import 'pages/app-file-manager';
+@import 'pages/app-email';
+@import 'pages/app-ecommerce';
+@import 'pages/app-social';
+
+// Pages
+@import 'pages/icon-demo';
+@import 'pages/authentication';
+@import 'pages/pricing';
+@import 'pages/timeline';
+
+// Custom React
+@import 'pages/custom-react';

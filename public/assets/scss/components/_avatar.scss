@@ -1,0 +1,59 @@
+//
+// _avatar.scss
+//
+
+// avatar height
+.avatar-xs {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.avatar-sm {
+    height: 2.25rem;
+    width: 2.25rem;
+}
+
+.avatar {
+    height: 3rem;
+    width: 3rem;
+}
+
+.avatar-md {
+    height: 3.5rem;
+    width: 3.5rem;
+}
+
+.avatar-lg {
+    height: 4.5rem;
+    width: 4.5rem;
+}
+
+.avatar-xl {
+    height: 6rem;
+    width: 6rem;
+}
+
+.avatar-xxl {
+    height: 7.5rem;
+    width: 7.5rem;
+}
+
+.avatar-title {
+    align-items: center;
+    color: $white;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+}
+
+.avatar-group {
+    padding-left: 12px;
+
+    .avatar-group-item {
+        margin: 0 0 0 -12px;
+        display: inline-block;
+        border: $border-width * 2 solid $border-color;
+        border-radius: 50%;
+    }
+}

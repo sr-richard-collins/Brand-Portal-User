@@ -1,0 +1,57 @@
+//
+// helper.scss
+//
+
+// Minimum width
+
+.width-xs {
+    min-width: 80px;
+}
+
+.width-sm {
+    min-width: 100px;
+}
+
+.width-md {
+    min-width: 120px;
+}
+
+.width-lg {
+    min-width: 140px;
+}
+
+.width-xl {
+    min-width: 160px;
+}
+
+// dashed line
+@each $color, $value in $theme-colors {
+    .border-dashed-#{$color} {
+        border-bottom: 1px dashed ($value);
+    }
+}
+
+// sticky bar
+.sticky-bar {
+    position: sticky;
+    z-index: 99;
+    top: calc(#{$topbar-height} + #{$spacer});
+}
+
+//
+.flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+}
+
+// cursor
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.border-transparent {
+    --#{$prefix}border-color: transparent !important;
+}

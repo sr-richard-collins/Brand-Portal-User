@@ -1,0 +1,69 @@
+//
+//  social.scss
+//
+
+.wallpaper {
+    background-image: url('@/assets/images/app-social/wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+
+    .profile {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        padding: 5px;
+        border: $border-width solid $white;
+    }
+}
+
+.acc-wallpaper {
+    background-image: url('@/assets/images/app-social/acc-wallpaper.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    position: relative;
+
+    .profile {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        padding: 5px;
+        border: $border-width solid $white;
+    }
+}
+
+.group {
+    position: relative;
+    cursor: pointer;
+
+    .group-action {
+        display: none;
+    }
+
+    &:hover {
+        .group-action {
+            display: block;
+            position: absolute;
+            top: $spacer * 0.5;
+            right: $spacer * 0.5;
+        }
+    }
+}
+
+.spin-icon {
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

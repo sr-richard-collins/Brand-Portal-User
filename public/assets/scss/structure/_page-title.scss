@@ -1,0 +1,13 @@
+//
+// Page-title
+//
+
+.page-title-box {
+    padding-bottom: $spacer;
+    background-color: transparent;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: $spacer * 0.5;
+}

@@ -1,0 +1,108 @@
+//
+// authentication.scss
+//
+
+.authentication-bg {
+        background: url('@/assets/images/bg-overlay.svg') $primary;
+        padding-bottom: 0;
+
+        .account-pages {
+            align-items: center;
+            display: flex;
+            min-height: 100vh;
+        }
+}
+
+.auth-logo {
+    .logo-dark {
+        display: block;
+    }
+
+    .logo-light {
+        display: none;
+    }
+}
+
+html[data-bs-theme='dark'] {
+    .auth-logo {
+        .logo-dark {
+            display: none;
+        }
+
+        .logo-light {
+            display: block;
+        }
+    }
+}
+
+.account-pages {
+    .auth-card {
+        position: relative;
+        border: 0;
+        box-shadow: none;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            right: 0;
+            background: $card-bg;
+            opacity: 0.25;
+            height: 20px;
+            width: 80%;
+            margin: 0 auto;
+            border-top-left-radius: $border-radius-sm;
+            border-top-right-radius: $border-radius-sm;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            right: 0;
+            background: $card-bg;
+            opacity: 0.6;
+            height: 20px;
+            width: 90%;
+            margin: 0 auto;
+            border-top-left-radius: $border-radius-sm;
+            border-top-right-radius: $border-radius-sm;
+        }
+    }
+}
+
+.auth-page-sidebar {
+    padding: 4rem;
+    background-color: $card-bg;
+    border-radius: $border-radius-sm;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p.no-span {
+    display: table;
+    white-space: nowrap;
+    padding: 10px 0;
+
+    &::before,
+    &::after {
+        border-top: 1px solid #{$card-border-color};
+        content: '';
+        display: table-cell;
+        position: relative;
+        top: 0.7em;
+        width: 50%;
+    }
+
+    &::before {
+        right: 1.5%;
+    }
+
+    &::after {
+        left: 1.5%;
+    }
+}

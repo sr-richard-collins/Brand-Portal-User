@@ -1,0 +1,26 @@
+//
+// _badges.scss
+//
+
+// Soft badge
+@each $color, $value in $theme-colors-rgb {
+    .badge-soft-#{$color} {
+        --#{$prefix}badge-color: var(--#{$prefix}#{$color});
+        --#{$prefix}bg-opacity: 0.18;
+        background-color: rgba(
+            var(--#{$prefix}#{$color}-rgb),
+            var(--#{$prefix}bg-opacity)
+        ) !important;
+        box-shadow: none;
+    }
+}
+
+// Outline Badge
+@each $color, $value in $theme-colors-rgb {
+    .badge-outline-#{$color} {
+        --#{$prefix}badge-color: var(--#{$prefix}#{$color});
+        border: 1px solid var(--#{$prefix}#{$color});
+        background-color: transparent;
+        box-shadow: none;
+    }
+}

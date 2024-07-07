@@ -1,0 +1,60 @@
+//
+// tables.scss
+//
+
+th {
+    font-weight: $font-weight-semibold;
+}
+
+// Table centered
+.table-centered {
+    td,
+    th {
+        vertical-align: middle !important;
+    }
+}
+
+// Table
+.table-nowrap {
+    th,
+    td {
+        white-space: nowrap;
+    }
+}
+
+// Custom table components
+.table {
+    tbody tr:last-child td {
+        border-bottom: 0px;
+    }
+
+    &.table-dashed > :not(caption) > * > * {
+        border-style: dashed;
+    }
+
+    .table-user {
+        img {
+            height: 30px;
+            width: 30px;
+        }
+    }
+
+    .action-icon {
+        color: var(--#{$prefix}body-color);
+        font-size: 1.2rem;
+        display: inline-block;
+        padding: 0 3px;
+
+        &:hover {
+            color: var(--#{$prefix}tertiary-color);
+        }
+    }
+}
+
+html[data-bs-theme='dark'] {
+    .table-light {
+        --#{$prefix}table-color: var(--#{$prefix}body-color);
+        --#{$prefix}table-bg: var(--#{$prefix}light);
+        --#{$prefix}table-border-color: #{$table-group-separator-color};
+    }
+}

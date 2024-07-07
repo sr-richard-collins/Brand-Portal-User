@@ -1,0 +1,41 @@
+//
+// _footer.scss
+//
+
+.footer {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 0 calc(#{$spacer} * 0.5);
+    color: $footer-color;
+    height: $footer-height;
+    background-color: $card-bg;
+    box-shadow: $box-shadow;
+}
+
+.footer-text {
+    background: linear-gradient(
+        to right,
+        $primary 10%,
+        $warning 50%,
+        $success 60%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2.5s linear infinite;
+    display: inline-block;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}

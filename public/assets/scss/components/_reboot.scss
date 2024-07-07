@@ -1,0 +1,22 @@
+//
+// _reboot.scss
+//
+
+body {
+    overflow-x: hidden;
+}
+
+.row > * {
+    position: relative;
+}
+
+.scroll-hidden {
+    &::-webkit-scrollbar {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    &::-webkit-scrollbar:vertical {
+        width: 0px;
+    }
+}

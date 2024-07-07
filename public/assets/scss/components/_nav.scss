@@ -1,0 +1,99 @@
+//
+// nav.scss
+//
+
+.nav-link {
+    &.active {
+        color: $primary;
+    }
+}
+
+.nav-tabs {
+    .nav-item {
+        margin-bottom: -1px;
+    }
+
+    li {
+        a {
+            border-color: transparent !important;
+        }
+
+        span.active {
+            border-bottom: $border-width solid $primary !important;
+            margin-bottom: 1px;
+        }
+    }
+}
+
+.card-tabs {
+    .nav-link {
+        border-top: transparent !important;
+        border-left: transparent !important;
+        border-right: transparent !important;
+    }
+
+}
+
+
+// pills
+.nav-tabs,
+.nav-pills {
+    >li {
+        >a {
+            font-weight: $font-weight-semibold;
+        }
+    }
+}
+
+.nav-pills {
+    background: var(--#{$prefix}tertiary-bg);
+    border-radius: $border-radius-sm;
+
+    .nav-link {
+        background-color: transparent;
+        color: var(--#{$prefix}link-color);
+    }
+
+    .nav-link.active,
+    .show>.nav-link {
+        color: $white;
+        background-color: $primary;
+        box-shadow: $box-shadow-sm;
+    }
+}
+
+.nav-underline {
+
+    .nav-link.active {
+        border-bottom: 2px solid $primary;
+
+        span {
+            color: $primary;
+        }
+    }
+
+    .nav-link:hover {
+        span {
+            border-bottom-color: transparent;
+        }
+    }
+}
+
+.tab-content {
+    padding: 20px 0 0 0;
+}
+
+.icon-wizard {
+    .nav-item {
+        .nav-link {
+            padding: 11px 14px !important;
+            box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            border-radius: var(--#{$prefix}border-radius) !important;
+        }
+    }
+}

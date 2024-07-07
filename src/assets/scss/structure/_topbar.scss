@@ -1,0 +1,141 @@
+//
+// topbar.scss
+//
+
+.topbar {
+    top: 0;
+    z-index: 1005;
+    position: sticky;
+    transition: all 0.3s ease-in-out;
+    height: $topbar-height;
+    background-color: $topbar-bg;
+    box-shadow: $box-shadow;
+    padding-left: $main-nav-width;
+    border-bottom: #{$card-border-width} solid #{$card-border-color};
+
+    .navbar-header {
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    // Search
+    .app-search {
+        .form-control {
+            border: none;
+            padding-left: 40px;
+            padding-right: 15px;
+            background-color: $topbar-search-bg;
+            box-shadow: none;
+            height: 38px;
+        }
+
+        .search-widget-icon {
+            position: absolute;
+            z-index: 10;
+            font-size: 18px;
+            left: 11px;
+            top: 50%;
+            color: $gray-500;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .search-widget-icon-close {
+            right: 7px;
+            left: auto !important;
+        }
+    }
+
+    .topbar-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $topbar-height;
+
+        .button-toggle-menu {
+            border: none;
+            border-radius: 0;
+            color: $topbar-item-color;
+            background-color: transparent;
+
+            &.active,
+            &:active,
+            &:hover,
+            &:focus {
+                color: $topbar-item-color;
+                background-color: transparent;
+            }
+        }
+
+        .topbar-button {
+            border: none;
+            border-radius: 50%;
+            background: transparent;
+            transition: all 0.3s ease-in-out;
+            color: $topbar-item-color;
+            padding: $btn-padding-y $btn-padding-y;
+            position: relative;
+
+            &.show,
+            &.active,
+            &:active,
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+
+    .topbar-badge {
+        right: -7px;
+        top: 7px !important;
+    }
+}
+
+// fullscreen exit icon
+.fullscreen-enable {
+    .bx-fullscreen::before {
+        transition: all 0.3s ease-in-out;
+        content: '\eacb';
+    }
+}
+
+// Dark Mode Icon
+html[data-bs-theme='dark'] {
+    .topbar {
+        #light-dark-mode {
+            i {
+                &::before {
+                    transition: all 0.3s ease-in-out;
+                    content: '\eebe';
+                }
+            }
+        }
+    }
+}
+
+html[data-menu-size='hidden'] {
+    .topbar {
+        padding: 0 $spacer;
+    }
+}
+
+// @include media-breakpoint-down(md) {
+@media (max-width: 375px) {
+    .topbar {
+        padding: 0 0.5 * $spacer !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .topbar {
+        .dropdown {
+            position: static;
+
+            .dropdown-menu {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,0 +1,142 @@
+//
+// vector-map.scss
+//
+
+svg {
+    touch-action: none;
+}
+
+.jvm-marker {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    fill: var(--#{$prefix}body-color);
+}
+
+image,
+text,
+.jvm-zoomin,
+.jvm-zoomout {
+    user-select: none;
+}
+
+.jvm-container {
+    touch-action: none;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.jvm-tooltip {
+    border-radius: $tooltip-border-radius;
+    background-color: $tooltip-bg;
+    font-family: $font-family-sans-serif;
+    font-size: $tooltip-font-size;
+    box-shadow: none;
+    padding: $tooltip-padding-y $tooltip-padding-x;
+    white-space: nowrap;
+    position: absolute;
+    display: none;
+    color: $tooltip-color;
+}
+
+.jvm-zoom-btn {
+    border-radius: $btn-border-radius;
+    background-color: $secondary;
+    border-color: $black;
+    color: $white;
+    font-size: $font-size-base;
+    font-weight: $btn-font-weight;
+    padding: $btn-padding-y-sm $btn-padding-x-sm;
+    box-sizing: border-box;
+    position: absolute;
+    line-height: $btn-line-height;
+    cursor: pointer;
+    left: 0;
+
+    &.jvm-zoomout {
+        top: 55px;
+    }
+
+    &.jvm-zoomin {
+        top: 10px;
+    }
+}
+
+.jvm-series-container {
+    right: 15px;
+    position: absolute;
+
+    &.jvm-series-h {
+        bottom: 15px;
+    }
+
+    &.jvm-series-v {
+        top: 15px;
+    }
+
+    .jvm-legend {
+        background-color: #fff;
+        border: $border-width solid $border-color;
+        margin-left: 0.75rem;
+        border-radius: $border-radius;
+        border-color: $border-color;
+        padding: 0.6rem;
+        box-shadow: none;
+        float: left;
+
+        .jvm-legend-title {
+            line-height: 1;
+            border-bottom: $border-width solid $border-color;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.575rem;
+            text-align: left;
+        }
+
+        .jvm-legend-inner {
+            overflow: hidden;
+
+            .jvm-legend-tick {
+                overflow: hidden;
+                min-width: 40px;
+
+                &:not(:first-child) {
+                    margin-top: 0.575rem;
+                }
+
+                .jvm-legend-tick-sample {
+                    border-radius: 4px;
+                    margin-right: 0.65rem;
+                    height: 16px;
+                    width: 16px;
+                    float: left;
+                }
+
+                .jvm-legend-tick-text {
+                    font-size: 12px;
+                    text-align: center;
+                    float: left;
+                }
+            }
+        }
+    }
+}
+
+.jvectormap-label {
+    border: none;
+    background: var(--#{$prefix}dark);
+    color: var(--#{$prefix}dark);
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-base;
+    padding: 5px 8px;
+}
+
+.jvm-line[animation='true'] {
+    animation: jvm-line-animation 10s linear forwards infinite;
+}
+
+@keyframes jvm-line-animation {
+    from {
+        stroke-dashoffset: 250;
+    }
+}

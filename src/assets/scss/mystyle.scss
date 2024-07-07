@@ -1,0 +1,9 @@
+.centered-row {
+    display: flex;
+    justify-content: center;
+    width: 800px;
+    margin: 0 auto;
+  }
+  html[data-menu-size=condensed] .main-nav .logo-box {
+      margin-left: -30%; /* Apply negative margin */
+  }

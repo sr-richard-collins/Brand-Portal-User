@@ -1,0 +1,61 @@
+//
+// app-file-manager.scss
+//
+
+.file-container {
+    background-color: $card-bg;
+    .file-leftbar {
+        width: $main-nav-width;
+        float: left;
+        padding-bottom: 184px;
+        margin-bottom: -184px;
+    }
+
+    .file-rightbar {
+        margin-left: $main-nav-width;
+        border-left: 5px solid $body-bg;
+        padding: 0 0 1.5rem 25px;
+    }
+}
+
+.file-search {
+    .search-input {
+        background-color: $gray-100;
+        // padding-left: 40px;
+        padding: $input-btn-padding-y $input-btn-padding-x + 1;
+        border: $border-width solid $gray-100 !important;
+        border-radius: $border-radius-sm !important;
+    }
+    .icon-search {
+        z-index: 4;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 648px) {
+    .file-container {
+        .file-leftbar {
+            width: 100%;
+            float: none;
+            margin-bottom: 21px;
+            padding-bottom: 1.25rem;
+        }
+
+        .file-rightbar {
+            margin-left: 0;
+            border: 0;
+            padding-left: 0;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .file-rightbar {
+        > .btn-group {
+            margin-bottom: 10px;
+        }
+    }
+}
