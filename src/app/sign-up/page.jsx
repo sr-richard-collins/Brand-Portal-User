@@ -45,6 +45,10 @@ const SignUp = () => {
         <Link to="/sign-in" className="text-white fw-bold ms-1">
           Sign In
         </Link>
+        &nbsp;or
+        <Link to="/sign-in" className="text-white fw-bold ms-1">
+          Home
+        </Link>
       </p>
     </>
   )

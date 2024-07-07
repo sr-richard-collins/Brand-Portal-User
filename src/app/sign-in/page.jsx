@@ -48,6 +48,10 @@ const SignIn = () => {
         <Link to="/sign-up" className="text-white fw-bold ms-1">
           Sign Up
         </Link>
+        &nbsp;or
+        <Link to="/" className="text-white fw-bold ms-1">
+          Home
+        </Link>
       </p>
     </>
   )

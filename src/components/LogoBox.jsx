@@ -7,10 +7,10 @@ const LogoBox = ({ containerClassName, squareLogo, textLogo }) => {
     <div className={(containerClassName ?? '') + ' logo-container'}>
       <Link to="/" className="logo-dark">
         {/* <img src={logoSm} className={squareLogo?.className} height={squareLogo?.height ?? 30} width={squareLogo?.width ?? 19} alt="logo sm" /> */}
-        <img src={logoDark} className={textLogo?.className} height={textLogo?.height ?? 70} width={textLogo?.width ?? 100} alt="logo dark" />
+        <img src={logoDark} className={textLogo?.className} height={textLogo?.height ?? 70} width={textLogo?.width ?? 80} alt="logo dark" />
       </Link>
       <Link to="/" className="logo-light">
-        <img src={logoLight} className={textLogo?.className} height={textLogo?.height ?? 50} width={textLogo?.width ?? 100} alt="logo light" />
+        <img src={logoLight} className={textLogo?.className} height={textLogo?.height ?? 50} width={textLogo?.width ?? 80} alt="logo light" />
       </Link>
     </div>
   )

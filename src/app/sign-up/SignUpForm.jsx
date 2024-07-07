@@ -1,8 +1,10 @@
 import PasswordFormInput from '@/components/form/PasswordFormInput'
+import PasswordWithStrengthInput from '@/components/form/PasswordWithStrengthInput'
 import TextFormInput from '@/components/form/TextFormInput'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, FormCheck } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
+import { useState } from 'react'
 import * as yup from 'yup'
 const SignUpForm = () => {
   const signUpSchema = yup.object({
@@ -13,13 +15,14 @@ const SignUpForm = () => {
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(signUpSchema),
   })
+
   return (
     <form className="authentication-form" onSubmit={handleSubmit(() => {})}>
       <TextFormInput control={control} name="firstName" containerClassName="mb-3" label="First Name*" id="firstName" placeholder="Enter your name" />
       <TextFormInput control={control} name="lastName" containerClassName="mb-3" label="Last Name*" id="lastName" placeholder="Enter your name" />
       <TextFormInput control={control} name="userName" containerClassName="mb-3" label="UserName" id="userName" placeholder="Enter your name" />
       <TextFormInput control={control} name="email" containerClassName="mb-3" label="Email*" id="email" placeholder="Enter your email" />
-      <PasswordFormInput
+      <PasswordWithStrengthInput
         control={control}
         name="password"
         containerClassName="mb-3"
