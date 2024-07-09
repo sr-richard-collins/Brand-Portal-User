@@ -10,7 +10,8 @@
     height: $topbar-height;
     background-color: $topbar-bg;
     box-shadow: $box-shadow;
-    padding-left: $main-nav-width;
+    padding-left: 75px;
+    // padding-left: $main-nav-width;
     border-bottom: #{$card-border-width} solid #{$card-border-color};
 
     .navbar-header {

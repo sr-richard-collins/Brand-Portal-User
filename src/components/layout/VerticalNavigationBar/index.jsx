@@ -3,13 +3,14 @@ import FallbackLoading from '@/components/FallbackLoading'
 import LogoBox from '@/components/LogoBox'
 import SimplebarReactClient from '@/components/wrappers/SimplebarReactClient'
 import { getMenuItems } from '@/helpers/menu'
+import LeftSideBarToggle from '../TopNavigationBar/components/LeftSideBarToggle'
 import HoverMenuToggle from './components/HoverMenuToggle'
 const AppMenu = lazy(() => import('./components/AppMenu'))
 const VerticalNavigationBar = () => {
   const menuItems = getMenuItems()
   return (
-    <div className="main-nav" id="leftside-menu-container">
-      <LogoBox
+    <div className="main-nav" id="leftside-menu-container" style={{ marginTop: '70px' }}>
+      {/* <LogoBox
         containerClassName="logo-box"
         squareLogo={{
           className: 'logo-sm',
@@ -17,7 +18,8 @@ const VerticalNavigationBar = () => {
         textLogo={{
           className: 'logo-lg',
         }}
-      />
+      /> */}
+      {/* <LeftSideBarToggle /> */}
       <HoverMenuToggle />
       <SimplebarReactClient className="scrollbar">
         <Suspense fallback={<FallbackLoading />}>

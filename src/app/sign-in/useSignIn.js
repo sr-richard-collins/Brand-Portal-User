@@ -9,7 +9,7 @@ import axios from '@/helpers/axiosConfig'
 const useSignIn = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-  const { saveSession } = useAuthContext()
+  const { saveSession, removeSession } = useAuthContext()
   const [searchParams] = useSearchParams()
   const { showNotification } = useNotificationContext()
   const loginFormSchema = yup.object({
@@ -33,7 +33,7 @@ const useSignIn = () => {
       const res = await axios.post('/signin', {
         ...values,
       })
-      if (res.data.authorisation.token) {
+      if (res.data.token) {
         saveSession({
           ...(res.data ?? {}),
           token: res.data.token,
@@ -62,9 +62,19 @@ const useSignIn = () => {
       setLoading(false)
     }
   })
+  const logout = () => {
+    removeSession()
+    localStorage.removeItem('user')
+    navigate('sign-in')
+    showNotification({
+      message: 'Successfully logged out.',
+      variant: 'success',
+    })
+  }
   return {
     loading,
     login,
+    logout,
     control,
   }
 }

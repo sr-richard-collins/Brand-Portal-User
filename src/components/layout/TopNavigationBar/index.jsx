@@ -1,11 +1,7 @@
 import { lazy } from 'react'
-import { Suspense } from 'react'
-import ActivityStreamToggle from './components/ActivityStreamToggle'
 import LeftSideBarToggle from './components/LeftSideBarToggle'
 import ProfileDropdown from './components/ProfileDropdown'
-import SearchBox from './components/SearchBox'
-import ThemeCustomizerToggle from './components/ThemeCustomizerToggle'
-import ThemeModeToggle from './components/ThemeModeToggle'
+import LogoBox from '@/components/LogoBox'
 const AppsDropdown = lazy(() => import('./components/AppsDropdown'))
 const Notifications = lazy(() => import('./components/Notifications'))
 const TopNavigationBar = () => {
@@ -13,6 +9,16 @@ const TopNavigationBar = () => {
     <header className="topbar">
       <div className="navbar-header">
         <div className="d-flex align-items-center gap-2">
+          <LogoBox
+            containerClassName="logo-box"
+            squareLogo={{
+              className: 'logo-sm',
+            }}
+            textLogo={{
+              className: 'logo-lg',
+            }}
+          />
+
           <LeftSideBarToggle />
 
           {/* <SearchBox /> */}

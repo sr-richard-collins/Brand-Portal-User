@@ -14,13 +14,13 @@ export const MENU_ITEMS = [
       {
         key: 'category-main',
         label: 'mot accordion',
-        url: '/',
+        url: '/mot1',
         parentKey: 'category',
       },
       {
         key: 'category-sub',
         label: 'mot accordion',
-        url: '/',
+        url: '/mot2',
         parentKey: 'category',
       },
     ],
