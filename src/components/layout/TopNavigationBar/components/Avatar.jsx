@@ -1,4 +1,5 @@
 import React from 'react'
+import { IMAGE_BASE_URL } from '@/helpers/axiosConfig'
 
 const Avatar = ({ user, defaultAvatar }) => {
   const renderAvatar = () => {
@@ -23,7 +24,7 @@ const Avatar = ({ user, defaultAvatar }) => {
         </div>
       )
     }
-    return <img className="rounded-circle" width={32} height={32} src={user.avatar || defaultAvatar} alt="avatar" />
+    return <img className="rounded-circle" width={32} height={32} src={IMAGE_BASE_URL + user.avatar || defaultAvatar} alt="avatar" />
   }
 
   return <span className="d-flex align-items-center">{renderAvatar()}</span>

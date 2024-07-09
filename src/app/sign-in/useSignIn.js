@@ -65,7 +65,7 @@ const useSignIn = () => {
   const logout = () => {
     removeSession()
     localStorage.removeItem('user')
-    navigate('sign-in')
+    navigate('/sign-in')
     showNotification({
       message: 'Successfully logged out.',
       variant: 'success',

@@ -8,6 +8,7 @@ import PasswordWithStrengthInput from '@/components/form/PasswordWithStrengthInp
 import TextFormInput from '@/components/form/TextFormInput'
 import avatar1 from '@/assets/images/users/dummy-avatar.jpg'
 import IconifyIcon from '@/components/wrappers/IconifyIcon'
+import { IMAGE_BASE_URL } from '@/helpers/axiosConfig'
 
 const Profile = () => {
   const user = JSON.parse(localStorage.getItem('user'))
@@ -127,7 +128,7 @@ const Profile = () => {
                   </div>
                 </label>
                 <input className="hidden" type="file" id="imageInput" accept="image/*" onChange={handleImageChange} />
-                <img id="preview" src={preview} alt="Preview Image" className="rounded-circle img-fluid" />
+                <img id="preview" src={user.avatar ? IMAGE_BASE_URL + preview : preview} alt="Preview Image" className="rounded-circle img-fluid" />
               </div>
             </div>
             <Row>
