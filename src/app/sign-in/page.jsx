@@ -4,7 +4,7 @@ import LogoBox from '@/components/LogoBox'
 import PageMetaData from '@/components/PageTitle'
 import ThirdPartyAuth from '@/components/ThirdPartyAuth'
 import LoginForm from './LoginForm'
-import signInImg from '@/assets/images/sign-in.svg'
+import signInImg from '@/assets/images/sign-in.jpeg'
 const SignIn = () => {
   return (
     <>
@@ -30,7 +30,12 @@ const SignIn = () => {
                   />
                 </div>
                 <h2 className="fw-bold text-center fs-18">Sign In</h2>
-                <p className="text-muted text-center mt-1 mb-4">Enter your email address and password to access admin panel.</p>
+                <p className="text-muted text-center mt-1 mb-4">
+                  Kom binnen! <br />
+                  Je kan de Inspire Brandportal bekijken en dingen downloaden.
+                  <br />
+                  Maar om bij sommige dingen te komen moet je even een account aanmaken.
+                </p>
                 <Row className="justify-content-center">
                   <Col xs={12} md={8}>
                     <LoginForm />

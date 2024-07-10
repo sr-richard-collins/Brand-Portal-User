@@ -4,7 +4,7 @@ import LogoBox from '@/components/LogoBox'
 import PageMetaData from '@/components/PageTitle'
 import ThirdPartyAuth from '@/components/ThirdPartyAuth'
 import SignUpForm from './SignUpForm'
-import signUpImg from '@/assets/images/sign-in.svg'
+import signUpImg from '@/assets/images/sign-in.jpeg'
 const SignUp = () => {
   return (
     <>
@@ -28,7 +28,12 @@ const SignUp = () => {
                   containerClassName="mx-auto mb-4 text-center auth-logo"
                 />
                 <h2 className="fw-bold text-center fs-18">Sign Up</h2>
-                <p className="text-muted text-center mt-1 mb-4">New to our platform? Sign up now! It only takes a minute.</p>
+                <p className="text-muted text-center mt-1 mb-4">
+                  Kom binnen! <br />
+                  Je kan de Inspire Brandportal bekijken en dingen downloaden.
+                  <br />
+                  Maar om bij sommige dingen te komen moet je even een account aanmaken.
+                </p>
                 <Row className="justify-content-center">
                   <Col xs={12} md={8}>
                     <SignUpForm />

@@ -26,6 +26,7 @@ const Profile = () => {
   })
   const { showNotification } = useNotificationContext()
   const [preview, setPreview] = useState(user.avatar || avatar1)
+  const [imageStatus, setImageStatus] = useState(false)
 
   useEffect(() => {
     reset({
@@ -66,7 +67,7 @@ const Profile = () => {
       formData.append('lastName', data.lastName)
       formData.append('userName', data.userName)
       formData.append('email', data.email)
-      if (data.password) {
+      if (data.setPassword) {
         formData.append('password', data.setPassword)
       }
       if (data.avatar) {
@@ -79,6 +80,7 @@ const Profile = () => {
         },
       })
       if (response.data.success) {
+        setImageStatus(false)
         showNotification({
           message: 'Profile updated successfully',
           variant: 'success',
@@ -105,6 +107,7 @@ const Profile = () => {
     if (file) {
       const reader = new FileReader()
       reader.onloadend = () => {
+        setImageStatus(true)
         setPreview(reader.result)
       }
       reader.readAsDataURL(file)
@@ -128,7 +131,12 @@ const Profile = () => {
                   </div>
                 </label>
                 <input className="hidden" type="file" id="imageInput" accept="image/*" onChange={handleImageChange} />
-                <img id="preview" src={user.avatar ? IMAGE_BASE_URL + preview : preview} alt="Preview Image" className="rounded-circle img-fluid" />
+                <img
+                  id="preview"
+                  src={user.avatar && !imageStatus ? IMAGE_BASE_URL + preview : preview}
+                  alt="Preview Image"
+                  className="rounded-circle img-fluid"
+                />
               </div>
             </div>
             <Row>

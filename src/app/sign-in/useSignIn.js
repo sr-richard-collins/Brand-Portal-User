@@ -25,8 +25,7 @@ const useSignIn = () => {
   })
   const redirectUser = () => {
     const redirectLink = searchParams.get('redirectTo')
-    if (redirectLink) navigate(redirectLink)
-    else navigate('/')
+    navigate('/')
   }
   const login = handleSubmit(async (values) => {
     try {
@@ -63,9 +62,9 @@ const useSignIn = () => {
     }
   })
   const logout = () => {
+    window.location.href = '/'
     removeSession()
     localStorage.removeItem('user')
-    navigate('/sign-in')
     showNotification({
       message: 'Successfully logged out.',
       variant: 'success',
