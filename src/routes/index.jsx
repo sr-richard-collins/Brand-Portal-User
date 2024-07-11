@@ -8,6 +8,7 @@ const Mot2 = lazy(() => import('@/app/dashboard/page'))
 const AuthSignIn = lazy(() => import('@/app/sign-in/page'))
 const AuthSignUp = lazy(() => import('@/app/sign-up/page'))
 const Profile = lazy(() => import('@/app/profile/page'))
+const Terms = lazy(() => import('@/app/terms/page'))
 
 export const appRoutes = [
   {
@@ -52,6 +53,11 @@ export const authRoutes = [
     path: '/sign-up',
     name: 'Sign Up',
     element: <AuthSignUp />,
+  },
+  {
+    path: '/terms',
+    name: 'Sign Up',
+    element: <Terms />,
   },
   {
     name: '404 Error',

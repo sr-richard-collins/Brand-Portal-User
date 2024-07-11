@@ -1,71 +1,78 @@
-import { createContext, useContext, useState } from 'react';
-import { ToastBody, ToastHeader } from 'react-bootstrap';
-import Toast from 'react-bootstrap/Toast';
-import ToastContainer from 'react-bootstrap/ToastContainer';
-const NotificationContext = createContext(undefined);
-function Toastr({
-  show,
-  title,
-  message,
-  onClose,
-  variant = 'light',
-  delay
-}) {
-  return <ToastContainer className="m-3 position-fixed" position="top-end">
+import { createContext, useContext, useState } from 'react'
+import { ToastBody, ToastHeader } from 'react-bootstrap'
+import Toast from 'react-bootstrap/Toast'
+import ToastContainer from 'react-bootstrap/ToastContainer'
+
+const NotificationContext = createContext(undefined)
+
+function Toastr({ show, title, message, onClose, variant = 'light', delay }) {
+  return (
+    <ToastContainer
+      className="position-fixed"
+      style={{
+        top: '20%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 9999,
+        width: 'fit-content',
+      }}>
       <Toast bg={variant} delay={delay} show={show} onClose={onClose} autohide>
-        {title && <ToastHeader className={`text-${variant}`}>
+        {title && (
+          <ToastHeader className={`text-${variant}`}>
             <strong className="me-auto">{title}</strong>
-          </ToastHeader>}
+          </ToastHeader>
+        )}
         <ToastBody className={['dark', 'danger', 'success', 'primary'].includes(variant) ? 'text-white' : ''}>{message}</ToastBody>
       </Toast>
-    </ToastContainer>;
+    </ToastContainer>
+  )
 }
+
 export function useNotificationContext() {
-  const context = useContext(NotificationContext);
+  const context = useContext(NotificationContext)
   if (!context) {
-    throw new Error('useNotificationContext must be used within an NotificationProvider');
+    throw new Error('useNotificationContext must be used within an NotificationProvider')
   }
-  return context;
+  return context
 }
-export function NotificationProvider({
-  children
-}) {
+
+export function NotificationProvider({ children }) {
   const defaultConfig = {
     show: false,
     message: '',
     title: '',
-    delay: 2000
-  };
-  const [config, setConfig] = useState(defaultConfig);
+    delay: 2000,
+  }
+
+  const [config, setConfig] = useState(defaultConfig)
+
   const hideNotification = () => {
     setConfig({
       show: false,
       message: '',
-      title: ''
-    });
-  };
-  const showNotification = ({
-    title,
-    message,
-    variant,
-    delay = 2000
-  }) => {
+      title: '',
+    })
+  }
+
+  const showNotification = ({ title, message, variant, delay = 2000 }) => {
     setConfig({
       show: true,
       title,
       message,
       variant: variant ?? 'light',
       onClose: hideNotification,
-      delay
-    });
+      delay,
+    })
+
     setTimeout(() => {
-      setConfig(defaultConfig);
-    }, delay);
-  };
-  return <NotificationContext.Provider value={{
-    showNotification
-  }}>
+      setConfig(defaultConfig)
+    }, delay)
+  }
+
+  return (
+    <NotificationContext.Provider value={{ showNotification }}>
       <Toastr {...config} />
       {children}
-    </NotificationContext.Provider>;
+    </NotificationContext.Provider>
+  )
 }

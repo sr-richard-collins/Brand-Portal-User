@@ -8,9 +8,13 @@ import TextFormInput from '@/components/form/TextFormInput'
 import PasswordFormInput from '@/components/form/PasswordFormInput'
 import PasswordWithStrengthInput from '@/components/form/PasswordWithStrengthInput'
 import { useNotificationContext } from '@/context/useNotificationContext'
+import { useAuthContext } from '@/context/useAuthContext'
+import { Link } from 'react-router-dom'
 
 const SignUpForm = () => {
   const { showNotification } = useNotificationContext()
+  const { saveSession } = useAuthContext()
+  const [isSignIn, setIsSignIn] = useState(false)
 
   const signUpSchema = yup.object().shape({
     firstName: yup.string().required('Please enter your first name'),
@@ -33,17 +37,31 @@ const SignUpForm = () => {
   const onSubmit = async (formData) => {
     try {
       const response = await axios.post('/signup', formData)
-      showNotification({
-        message: 'Successfully registered in.',
-        variant: 'success',
-      })
-      // Optionally redirect to login page or handle success scenario
+
+      if (response.data.token) {
+        saveSession({
+          ...(response.data ?? {}),
+          token: response.data.token,
+        })
+        localStorage.setItem('user', JSON.stringify(response.data.user))
+        navigate('/')
+        setIsSignIn(true)
+        showNotification({
+          message: 'Successfully logged in. Redirecting....',
+          variant: 'success',
+        })
+      } else {
+        showNotification({
+          message: 'Something went wrong with login. Please try again.',
+          variant: 'danger',
+        })
+      }
     } catch (error) {
-      console.log(error)
-      showNotification({
-        message: error.response?.data?.errors?.message,
-        variant: 'danger',
-      })
+      if (isSignIn === false)
+        showNotification({
+          message: error.response?.data?.message?.email || 'Something went wrong.',
+          variant: 'danger',
+        })
     }
   }
 
@@ -105,7 +123,15 @@ const SignUpForm = () => {
       />
       <div className="mb-3">
         <FormCheck
-          label="I accept Terms and Conditions*"
+          label={
+            <span>
+              I accept{' '}
+              <Link to="/terms" className="text-decoration-underline">
+                Terms and Conditions
+              </Link>
+              *
+            </span>
+          }
           id="termAndCondition"
           {...control.register('termAndCondition')}
           isInvalid={errors.termAndCondition?.message}
