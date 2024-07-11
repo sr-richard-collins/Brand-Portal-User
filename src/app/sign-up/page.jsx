@@ -38,6 +38,16 @@ const SignUp = () => {
                   <Col xs={12} md={8}>
                     <SignUpForm />
                     {/* <ThirdPartyAuth /> */}
+                    <p className="text-black mb-0 mt-3 text-center">
+                      I already have an account
+                      <Link to="/sign-in" className="text-black fw-bold ms-1">
+                        Sign In
+                      </Link>
+                      &nbsp;or
+                      <Link to="/sign-in" className="text-black fw-bold ms-1">
+                        Home
+                      </Link>
+                    </p>
                   </Col>
                 </Row>
               </div>
@@ -45,16 +55,6 @@ const SignUp = () => {
           </Row>
         </CardBody>
       </Card>
-      <p className="text-white mb-0 text-center">
-        I already have an account
-        <Link to="/sign-in" className="text-white fw-bold ms-1">
-          Sign In
-        </Link>
-        &nbsp;or
-        <Link to="/sign-in" className="text-white fw-bold ms-1">
-          Home
-        </Link>
-      </p>
     </>
   )
 }

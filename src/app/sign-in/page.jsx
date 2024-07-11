@@ -39,7 +39,16 @@ const SignIn = () => {
                 <Row className="justify-content-center">
                   <Col xs={12} md={8}>
                     <LoginForm />
-
+                    <p className="text-black mb-0 mt-3 text-center">
+                      Don&apos;t have an account?
+                      <Link to="/sign-up" className="text-black fw-bold ms-1">
+                        Sign Up
+                      </Link>
+                      &nbsp;or
+                      <Link to="/" className="text-black fw-bold ms-1">
+                        Home
+                      </Link>
+                    </p>
                     {/* <ThirdPartyAuth /> */}
                   </Col>
                 </Row>
@@ -48,16 +57,6 @@ const SignIn = () => {
           </Row>
         </CardBody>
       </Card>
-      <p className="text-white mb-0 text-center">
-        Don&apos;t have an account?
-        <Link to="/sign-up" className="text-white fw-bold ms-1">
-          Sign Up
-        </Link>
-        &nbsp;or
-        <Link to="/" className="text-white fw-bold ms-1">
-          Home
-        </Link>
-      </p>
     </>
   )
 }
