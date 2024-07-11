@@ -44,7 +44,6 @@ const SignUpForm = () => {
           token: response.data.token,
         })
         localStorage.setItem('user', JSON.stringify(response.data.user))
-        navigate('/')
         setIsSignIn(true)
         showNotification({
           message: 'Successfully logged in. Redirecting....',
