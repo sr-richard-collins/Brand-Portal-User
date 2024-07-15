@@ -32,6 +32,7 @@
 
 .image-container img {
   max-width: 150px;
+  max-height: 150px;
   display: block;
   border: 1px solid #ddd;
   border-radius: 5px;

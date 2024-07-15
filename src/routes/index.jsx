@@ -56,7 +56,7 @@ const DynamicAppRoutes = () => {
   const mergedRoutes = [
     ...staticAppRoutes,
     ...dynamicRoutes.map((route) => ({
-      path: route.name.replace(' ', '-'),
+      path: `/:name`,
       name: route.name,
       status: route.status,
       element: <Content />, // Assuming all dynamic routes go to Content

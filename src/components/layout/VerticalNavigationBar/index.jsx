@@ -16,15 +16,20 @@ const fetchMenuItems = async () => {
   }
 }
 
-const processMenuItems = (data) => {
-  return data.map((item) => ({
-    key: item.name,
-    label: item.name,
-    section: item.section_name,
-    status: item.status,
-    ...(item.children ? {} : { url: `/${item.name.replace(' ', '-')}` }),
-    children: item.children ? processMenuItems(item.children) : undefined,
-  }))
+const processMenuItems = (data, parentKey = '') => {
+  return data.map((item) => {
+    const itemKey = parentKey ? `${parentKey}-${item.name}` : item.name
+
+    return {
+      key: itemKey,
+      label: item.name,
+      section: item.section_name,
+      status: item.status,
+      ...(item.children ? {} : { url: `/${item.name.replaceAll(' ', '-')}` }),
+      ...(item.children ? {} : { parentKey: parentKey }),
+      children: item.children ? processMenuItems(item.children, itemKey) : undefined,
+    }
+  })
 }
 
 const VerticalNavigationBar = () => {
@@ -33,7 +38,7 @@ const VerticalNavigationBar = () => {
   useEffect(() => {
     const getMenuItems = async () => {
       const fetchedMenuItems = await fetchMenuItems()
-      const processedMenuItems = processMenuItems(fetchedMenuItems)
+      const processedMenuItems = processMenuItems(fetchedMenuItems, '')
       setMenuItems(processedMenuItems)
     }
 
