@@ -1,40 +1,24 @@
-import { lazy } from 'react'
+import React, { lazy } from 'react'
 import { Navigate } from 'react-router-dom'
+import fetchMenuUrl from './fetchMenuUrl'
 
 const NotFound = lazy(() => import('@/app/error-404/page'))
-const Dashboard = lazy(() => import('@/app/dashboard/page'))
-const Mot1 = lazy(() => import('@/app/dashboard/page'))
-const Mot2 = lazy(() => import('@/app/dashboard/page'))
 const AuthSignIn = lazy(() => import('@/app/sign-in/page'))
 const AuthSignUp = lazy(() => import('@/app/sign-up/page'))
 const Profile = lazy(() => import('@/app/profile/page'))
+const Content = lazy(() => import('@/app/content/page'))
 const Terms = lazy(() => import('@/app/terms/page'))
 
-export const appRoutes = [
+export const staticAppRoutes = [
   {
     path: '/',
     name: 'root',
-    element: <Navigate to="/dashboard" />,
-  },
-  {
-    path: 'mot1',
-    name: 'mot1',
-    element: <Mot1 />,
-  },
-  {
-    path: 'mot2',
-    name: 'mot2',
-    element: <Mot2 />,
+    element: <Navigate to="/home" />,
   },
   {
     path: '*',
     name: 'not-found',
     element: <NotFound />,
-  },
-  {
-    path: 'dashboard',
-    name: 'dashboard',
-    element: <Dashboard />,
   },
   {
     path: 'profile',
@@ -65,3 +49,21 @@ export const authRoutes = [
     element: <NotFound />,
   },
 ]
+
+const DynamicAppRoutes = () => {
+  const dynamicRoutes = fetchMenuUrl('/getAllMenu') // Replace with your backend URL
+
+  const mergedRoutes = [
+    ...staticAppRoutes,
+    ...dynamicRoutes.map((route) => ({
+      path: route.name.replace(' ', '-'),
+      name: route.name,
+      status: route.status,
+      element: <Content />, // Assuming all dynamic routes go to Content
+    })),
+  ]
+
+  return mergedRoutes
+}
+
+export default DynamicAppRoutes

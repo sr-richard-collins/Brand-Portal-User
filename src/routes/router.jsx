@@ -1,12 +1,13 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import AuthLayout from '@/layouts/AuthLayout'
 import { useAuthContext } from '@/context/useAuthContext'
-import { appRoutes, authRoutes } from '@/routes/index'
+import { authRoutes } from '@/routes/index'
+import DynamicAppRoutes from '@/routes/index'
 import AdminLayout from '@/layouts/AdminLayout'
 
 const AppRouter = (props) => {
   const { isAuthenticated } = useAuthContext()
-
+  const appRoutes = DynamicAppRoutes()
   return (
     <Routes>
       {(authRoutes || []).map((route, idx) => (
@@ -24,7 +25,17 @@ const AppRouter = (props) => {
       ))}
 
       {(appRoutes || []).map((route, idx) => (
-        <Route key={idx + route.name} path={route.path} element={<AdminLayout {...props}>{route.element}</AdminLayout>} />
+        <Route
+          key={idx + route.name}
+          path={route.path}
+          element={
+            route.status === 'disable' && !isAuthenticated ? (
+              <Navigate to="/sign-in" /> // Redirect to login if route status is 'disable' and user is not authenticated
+            ) : (
+              <AdminLayout {...props}>{route.element}</AdminLayout>
+            )
+          }
+        />
       ))}
     </Routes>
   )
