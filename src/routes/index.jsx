@@ -13,7 +13,7 @@ export const staticAppRoutes = [
   {
     path: '/',
     name: 'root',
-    element: <Navigate to="/home" />,
+    element: <Navigate to="/Home" />,
   },
   {
     path: '*',

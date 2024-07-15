@@ -4,31 +4,24 @@ import axios from '../../../helpers/axiosConfig'
 import './editor2.css'
 
 const TransaviaAssets = ({ editorText, editorImg }) => {
-  const downloadImage = async (src) => {
-    try {
-      // Use Axios to fetch the image data
-      const response = await axios.get(src, { responseType: 'blob' })
+  const downloadImage = (imgSrc) => {
+    const filename = imgSrc.substring(imgSrc.lastIndexOf('/') + 1)
 
-      // Create a URL for the blob
-      const url = window.URL.createObjectURL(response.data)
-
-      // Create a link element
-      const link = document.createElement('a')
-      link.href = url
-      link.download = src.substring(src.lastIndexOf('/') + 1)
-
-      // Append the link to the body and click it programmatically
-      document.body.appendChild(link)
-      link.click()
-
-      // Clean up: remove the link from the DOM
-      document.body.removeChild(link)
-
-      // Revoke the object URL
-      window.URL.revokeObjectURL(url)
-    } catch (error) {
-      console.error('Error downloading the image:', error)
-    }
+    axios
+      .get(`/images/${filename}`, {
+        responseType: 'blob', // important
+      })
+      .then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]))
+        const a = document.createElement('a')
+        a.style.display = 'none'
+        a.href = url
+        a.download = filename
+        document.body.appendChild(a)
+        a.click()
+        window.URL.revokeObjectURL(url)
+      })
+      .catch(() => alert('Failed to download image.'))
   }
 
   return (
