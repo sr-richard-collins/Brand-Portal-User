@@ -6,13 +6,14 @@ const Editor1 = ({ editorText, editorImg }) => {
     <div>
       <div dangerouslySetInnerHTML={{ __html: editorText }} />
       <div className="logos">
-        {editorImg.length &&
-          editorImg.map((img, index) => (
-            <div className="logo-item" key={index}>
-              <img src={IMAGE_BASE_URL + img} alt={img.alt} />
-              <p>{img.alt}</p>
-            </div>
-          ))}
+        {editorImg != null
+          ? editorImg.map((img, index) => (
+              <div className="logo-item" key={index}>
+                <img src={IMAGE_BASE_URL + img} alt={img.alt} />
+                <p>{img.alt}</p>
+              </div>
+            ))
+          : ''}
       </div>
     </div>
   )

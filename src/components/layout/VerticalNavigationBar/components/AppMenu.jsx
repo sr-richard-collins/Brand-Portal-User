@@ -9,9 +9,6 @@ const MenuItemWithChildren = ({ item, className, linkClassName, subMenuClassName
   const [open, setOpen] = useState(activeMenuItems.includes(item.key))
 
   useEffect(() => {
-    console.log('A', activeMenuItems)
-    console.log(item.key.replaceAll('-', ' '))
-    console.log(activeMenuItems.includes(item.key.replaceAll('-', ' ')))
     setOpen(activeMenuItems.includes(item.key.replaceAll('-', ' ')))
   }, [activeMenuItems, item])
 

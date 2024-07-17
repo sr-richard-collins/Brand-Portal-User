@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useAuthContext } from '@/context/useAuthContext'
 
 const Content = () => {
-  const [editor, setEditor] = useState(null)
+  const [editors, setEditors] = useState([])
   const { name } = useParams()
   const { isAuthenticated } = useAuthContext()
 
@@ -21,9 +21,9 @@ const Content = () => {
         const statusResponse = await axios.get('/getMenuStatus', { params: { id: name } })
         if (statusResponse.data === 'disable' && !isAuthenticated) navigate('/sign-in')
         const response = await axios.get('/getContent', { params: { id: name } })
-        setEditor(response.data)
+        setEditors(response.data)
       } catch (error) {
-        setEditor(null)
+        setEditors([])
         console.error('Error fetching content', error)
       }
     }
@@ -38,10 +38,16 @@ const Content = () => {
           <Col>
             <Card>
               <Card.Body>
-                {editor ? <Editor1 editorText={editor.editor1_text} editorImg={JSON.parse(editor.editor1_img)} /> : ''}
-                {editor ? <Editor1 editorText={editor.editor2_text} editorImg={JSON.parse(editor.editor2_img)} /> : ''}
-                {editor ? <Editor2 editorText={editor.editor3_text} editorImg={JSON.parse(editor.editor3_img)} /> : ''}
-                {editor ? <Editor2 editorText={editor.editor4_text} editorImg={JSON.parse(editor.editor4_img)} /> : ''}
+                {editors.map((editor) => {
+                  const EditorComponent = editor.type === 'downloadable' ? Editor2 : Editor1
+                  return (
+                    <EditorComponent
+                      key={editor.id}
+                      editorText={editor.editor_text}
+                      editorImg={editor.editor_img === '[]' ? [] : JSON.parse(editor.editor_img)}
+                    />
+                  )
+                })}
               </Card.Body>
             </Card>
           </Col>
